@@ -36,6 +36,8 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    private String profileImage;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "user_permissions",
