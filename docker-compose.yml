@@ -3,7 +3,7 @@ services:
     image: postgres:16-alpine
     container_name: cbe-banking-db
     environment:
-      POSTGRES_DB: cbe_banking
+      POSTGRES_DB: banking_system
       POSTGRES_USER: cbe_user
       POSTGRES_PASSWORD: cbe_password
     ports:

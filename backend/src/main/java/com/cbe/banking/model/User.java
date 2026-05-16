@@ -8,6 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Entity
 @Table(name = "users")
@@ -33,9 +36,23 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "user_permissions",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "permission_id")
+    )
+    private Set<Permission> permissions;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
+        var roleAuthorities = List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
+        var permissionAuthorities = permissions.stream()
+                .map(p -> new SimpleGrantedAuthority(p.getName()))
+                .collect(Collectors.toList());
+        
+        return Stream.concat(roleAuthorities.stream(), permissionAuthorities.stream())
+                .collect(Collectors.toList());
     }
 
     @Override
