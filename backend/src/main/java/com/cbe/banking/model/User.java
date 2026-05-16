@@ -7,6 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -14,7 +15,8 @@ import java.util.stream.Stream;
 
 @Entity
 @Table(name = "users")
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,27 +36,37 @@ public class User implements UserDetails {
     private String password;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Role role;
 
     private String profileImage;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-        name = "user_permissions",
-        joinColumns = @JoinColumn(name = "user_id"),
-        inverseJoinColumns = @JoinColumn(name = "permission_id")
+            name = "user_permissions",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
     private Set<Permission> permissions;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        var roleAuthorities = List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
-        var permissionAuthorities = permissions.stream()
-                .map(p -> new SimpleGrantedAuthority(p.getName()))
-                .collect(Collectors.toList());
-        
-        return Stream.concat(roleAuthorities.stream(), permissionAuthorities.stream())
-                .collect(Collectors.toList());
+
+        List<GrantedAuthority> roleAuthorities =
+                List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
+
+        List<GrantedAuthority> permissionAuthorities =
+                permissions == null
+                        ? Collections.emptyList()
+                        : permissions.stream()
+                        .map(permission ->
+                                new SimpleGrantedAuthority(permission.getName()))
+                        .collect(Collectors.toList());
+
+        return Stream.concat(
+                roleAuthorities.stream(),
+                permissionAuthorities.stream()
+        ).collect(Collectors.toList());
     }
 
     @Override
@@ -83,6 +95,8 @@ public class User implements UserDetails {
     }
 
     public enum Role {
-        CUSTOMER, STAFF, ADMIN
+        CUSTOMER,
+        STAFF,
+        ADMIN
     }
 }
