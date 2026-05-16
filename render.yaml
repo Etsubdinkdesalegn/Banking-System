@@ -1,0 +1,51 @@
+services:
+  # Backend Service
+  - type: web
+    name: cbe-banking-backend
+    env: docker
+    buildCommand: docker build -t cbe-banking-backend -f backend/Dockerfile .
+    plan: free
+    region: oregon
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cbe-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: REDIS_HOST
+        fromService:
+          name: cbe-redis
+          property: host
+      - key: REDIS_PORT
+        fromService:
+          name: cbe-redis
+          property: port
+
+  # Frontend Service
+  - type: web
+    name: cbe-banking-frontend
+    env: docker
+    buildCommand: docker build -t cbe-banking-frontend -f frontend/Dockerfile .
+    plan: free
+    region: oregon
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          name: cbe-banking-backend
+          property: host
+
+databases:
+  - name: cbe-db
+    plan: free
+    region: oregon
+    databaseName: banking_system
+    user: cbe_user
+
+# Redis for rate limiting and queue
+- type: redis
+  name: cbe-redis
+  plan: free
+  region: oregon
