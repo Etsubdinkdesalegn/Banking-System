@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useUserStore } from "@/store/userStore";
-import { Menu, X, Bell, User } from "lucide-react";
+import { Menu, X, Bell, User, Terminal } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -22,12 +22,12 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-cbe-blue rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-[#0067b1] rounded-lg flex items-center justify-center">
             <span className="text-white font-bold">CBE</span>
           </div>
-          <span className="font-bold text-lg text-cbe-blue hidden sm:block">Digital Banking</span>
+          <span className="font-bold text-lg text-[#0067b1] hidden sm:block">Digital Banking</span>
         </Link>
 
         {/* Desktop Links */}
@@ -37,8 +37,8 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-cbe-blue",
-                pathname === link.href ? "text-cbe-blue" : "text-gray-500"
+                "text-sm font-medium transition-colors hover:text-[#0067b1]",
+                pathname === link.href ? "text-[#0067b1]" : "text-gray-500"
               )}
             >
               {link.name}
@@ -49,11 +49,11 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           {user ? (
             <div className="flex items-center gap-3">
-              <Button variant="ghost" size="icon" className="text-gray-500 hover:text-cbe-blue">
+              <Button variant="ghost" size="icon" className="text-gray-500">
                 <Bell className="h-5 w-5" />
               </Button>
               <Link href="/profile">
-                <Button variant="outline" className="rounded-full gap-2 border-cbe-blue text-cbe-blue hover:bg-cbe-blue hover:text-white">
+                <Button variant="outline" className="rounded-full gap-2">
                   <User className="h-4 w-4" />
                   <span className="hidden sm:inline">{user.fullName.split(" ")[0]}</span>
                 </Button>
@@ -62,15 +62,19 @@ export default function Navbar() {
           ) : (
             <div className="hidden md:flex items-center gap-3">
               <Link href="/login">
-                <Button variant="ghost" className="hover:text-cbe-blue">Login</Button>
+                <Button variant="ghost">Login</Button>
               </Link>
               <Link href="/signup">
-                <Button className="bg-cbe-blue hover:bg-cbe-blueHover text-white">Register</Button>
+                <Button className="bg-[#0067b1] hover:bg-[#005a9b]">Register</Button>
               </Link>
             </div>
           )}
 
-          {/* Mobile Menu Button */}
+          <Button variant="ghost" size="icon" className="text-gray-400 hover:text-[#0067b1] ml-2" title="Developer Tools">
+            <Terminal className="h-5 w-5" />
+          </Button>
+
+          {/* Mobile Menu Button Status */}
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -84,10 +88,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={cn(
-                "block text-sm font-medium transition-colors hover:text-cbe-blue",
-                pathname === link.href ? "text-cbe-blue" : "text-gray-500"
-              )}
+              className="block text-sm font-medium text-gray-500 hover:text-[#0067b1]"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
@@ -96,10 +97,10 @@ export default function Navbar() {
           {!user && (
             <div className="pt-4 border-t border-gray-100 flex flex-col gap-2">
               <Link href="/login" onClick={() => setIsOpen(false)}>
-                <Button variant="outline" className="w-full border-cbe-blue text-cbe-blue">Login</Button>
+                <Button variant="outline" className="w-full">Login</Button>
               </Link>
               <Link href="/signup" onClick={() => setIsOpen(false)}>
-                <Button className="w-full bg-cbe-blue text-white">Register</Button>
+                <Button className="w-full bg-[#0067b1]">Register</Button>
               </Link>
             </div>
           )}

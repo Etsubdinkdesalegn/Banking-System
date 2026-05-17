@@ -22,7 +22,7 @@ export default function QueuePage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
-      <div className="container mx-auto px-4 max-w-4xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-black text-[#0067b1] mb-4">Smart Queue Management</h1>
           <p className="text-lg text-gray-600">Save your time. Book a digital token and visit us only when it's your turn.</p>

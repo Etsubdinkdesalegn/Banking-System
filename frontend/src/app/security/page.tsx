@@ -3,7 +3,7 @@ import { ShieldCheck, Lock, Eye, AlertTriangle, CheckCircle } from "lucide-react
 export default function SecurityPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-16">
-      <div className="container mx-auto px-4 max-w-5xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <div className="text-center mb-16">
           <div className="inline-block p-4 bg-[#00a651]/10 rounded-3xl mb-4">
              <ShieldCheck className="h-12 w-12 text-[#00a651]" />

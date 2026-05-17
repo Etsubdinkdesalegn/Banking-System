@@ -15,7 +15,7 @@ export default function SupportPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-black text-[#0067b1] mb-4">Customer Support Center</h1>
           <p className="text-lg text-gray-600">How can we help you today? Our Dessie branch staff is ready to assist.</p>

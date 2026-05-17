@@ -11,50 +11,54 @@ export default function Home() {
     <div className="flex flex-col bg-white overflow-hidden">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full py-16 md:py-32 bg-gradient-to-br from-white via-white to-cbe-green/10 relative">
-          <div className="container px-4 md:px-6 relative z-10 mx-auto">
+        <section className="w-full py-20 md:py-32 bg-gradient-to-br from-white via-white to-[#00a651]/10 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="flex flex-col items-center space-y-6 text-center max-w-4xl mx-auto">
-              <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-cbe-blue/10 text-cbe-blue border border-cbe-blue/20">
-                <span className="flex h-2 w-2 rounded-full bg-cbe-blue mr-2 animate-pulse" />
+              <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-[#0067b1]/10 text-[#0067b1] border border-[#0067b1]/20">
+                <span className="flex h-2 w-2 rounded-full bg-[#0067b1] mr-2 animate-pulse" />
                 CBE Dessie Branch - Digital Evolution
               </div>
-              <h1 className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl text-cbe-blue leading-tight">
+              <h1 className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl text-[#0067b1] leading-tight">
                 Secure Banking <br />
-                <span className="text-cbe-green">Built for You</span>
+                <span className="text-[#00a651]">Built for You</span>
               </h1>
-              <p className="mx-auto max-w-[800px] text-gray-600 md:text-xl lg:text-2xl leading-relaxed">
+              <p className="mx-auto max-w-[800px] text-gray-500 md:text-xl lg:text-2xl leading-relaxed">
                 Empowering the Dessie community with world-class digital banking solutions. 
                 Skip the queues, digitalize your transactions, and bank with confidence.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <Link href="/signup">
-                  <Button className="bg-cbe-blue hover:bg-cbe-blueHover text-white px-10 py-7 text-lg rounded-full shadow-2xl shadow-cbe-blue/30 group transition-all">
+                  <Button className="bg-[#0067b1] hover:bg-[#005a9b] text-white px-10 py-7 text-lg rounded-full shadow-2xl shadow-[#0067b1]/30 group transition-all">
                     Register Now
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link href="/queue">
-                  <Button variant="outline" className="border-2 border-cbe-green text-cbe-green hover:bg-cbe-green/5 px-10 py-7 text-lg rounded-full transition-all">
+                  <Button variant="outline" className="border-2 border-[#00a651] text-[#00a651] hover:bg-[#00a651]/5 px-10 py-7 text-lg rounded-full transition-all">
                     Book Queuing Token
                   </Button>
                 </Link>
               </div>
             </div>
           </div>
+          
+          {/* Decorative Elements */}
+          <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-[#0067b1]/5 rounded-full blur-3xl -z-10" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#00a651]/5 rounded-full blur-3xl -z-10" />
         </section>
 
         {/* About Us Section */}
-        <section className="py-16 md:py-32 bg-white border-y border-gray-50">
-          <div className="container px-4 md:px-6 mx-auto">
+        <section className="py-24 bg-white border-y border-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-6">
-                <div className="inline-block p-3 bg-cbe-blue/10 rounded-2xl">
-                  <Info className="h-8 w-8 text-cbe-blue" />
+                <div className="inline-block p-3 bg-[#0067b1]/10 rounded-2xl">
+                  <Info className="h-8 w-8 text-[#0067b1]" />
                 </div>
                 <h2 className="text-4xl font-bold text-gray-900 leading-tight">
                   About CBE Dessie <br />Branch (Piyasa)
                 </h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg text-gray-600 leading-relaxed">
                   Located in the heart of Dessie, our Piyasa branch has been a cornerstone of the community for decades. 
                   We are now evolving into a digital-first hub to solve the long-standing challenges of physical banking.
                 </p>
@@ -65,8 +69,8 @@ export default function Home() {
                     "Pivoting to modern, customer-centric digital solutions",
                     "Committed to financial inclusion for all sectors"
                   ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 font-medium text-gray-800">
-                      <CheckCircle2 className="h-5 w-5 text-cbe-green" />
+                    <li key={i} className="flex items-center gap-3 font-medium text-gray-700">
+                      <CheckCircle2 className="h-5 w-5 text-[#00a651]" />
                       {item}
                     </li>
                   ))}
@@ -74,21 +78,21 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4 pt-8">
-                  <div className="bg-cbe-blue p-8 rounded-3xl text-white shadow-xl">
+                  <div className="bg-[#0067b1] p-8 rounded-3xl text-white shadow-xl">
                     <h4 className="text-4xl font-black">80+</h4>
                     <p className="text-sm opacity-80 mt-1">Years of Legacy</p>
                   </div>
                   <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100">
-                    <h4 className="text-4xl font-black text-cbe-green">24/7</h4>
-                    <p className="text-sm text-gray-600 mt-1">Digital Support</p>
+                    <h4 className="text-4xl font-black text-[#00a651]">24/7</h4>
+                    <p className="text-sm text-gray-500 mt-1">Digital Support</p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100">
-                    <h4 className="text-4xl font-black text-cbe-blue">99%</h4>
-                    <p className="text-sm text-gray-600 mt-1">Uptime Secure</p>
+                    <h4 className="text-4xl font-black text-[#0067b1]">99%</h4>
+                    <p className="text-sm text-gray-500 mt-1">Uptime Secure</p>
                   </div>
-                  <div className="bg-cbe-green p-8 rounded-3xl text-white shadow-xl">
+                  <div className="bg-[#00a651] p-8 rounded-3xl text-white shadow-xl">
                     <h4 className="text-4xl font-black">1M+</h4>
                     <p className="text-sm opacity-80 mt-1">Active Customers</p>
                   </div>
@@ -99,11 +103,11 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-16 md:py-32 bg-gray-50">
-          <div className="container px-4 md:px-6 mx-auto">
+        <section id="services" className="py-24 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-4xl font-bold mb-4 text-gray-900">Comprehensive Banking Services</h2>
-              <p className="text-lg text-gray-700">Tailored solutions for every financial need, from personal accounts to large-scale business operations.</p>
+              <h2 className="text-4xl font-bold mb-4">Comprehensive Banking Services</h2>
+              <p className="text-lg text-gray-600">Tailored solutions for every financial need, from personal accounts to large-scale business operations.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
@@ -113,11 +117,11 @@ export default function Home() {
                 { icon: TrendingUp, title: "Loan Services", desc: "Competitive rates for homes, cars, and investments." }
               ].map((service, i) => (
                 <div key={i} className="group bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
-                  <div className="w-12 h-12 bg-cbe-blue/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cbe-blue transition-colors">
-                    <service.icon className="h-6 w-6 text-cbe-blue group-hover:text-white" />
+                  <div className="w-12 h-12 bg-[#0067b1]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#0067b1] transition-colors">
+                    <service.icon className="h-6 w-6 text-[#0067b1] group-hover:text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 font-bold">{service.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{service.desc}</p>
+                  <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                  <p className="text-gray-500 text-sm">{service.desc}</p>
                 </div>
               ))}
             </div>
@@ -125,34 +129,34 @@ export default function Home() {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-16 md:py-32 bg-white overflow-hidden">
-          <div className="container px-4 md:px-6 mx-auto">
+        <section className="py-24 bg-white overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center gap-16">
               <div className="text-center max-w-3xl">
-                <h2 className="text-4xl font-bold mb-4 text-gray-900">Why Choose CBE Digital?</h2>
-                <p className="text-lg text-gray-700">We combine the strength of Ethiopia's largest bank with cutting-edge technology to solve real-world problems.</p>
+                <h2 className="text-4xl font-bold mb-4">Why Choose CBE Digital?</h2>
+                <p className="text-lg text-gray-600">We combine the strength of Ethiopia's largest bank with cutting-edge technology to solve real-world problems.</p>
               </div>
               <div className="grid md:grid-cols-3 gap-12">
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="p-5 bg-blue-50 rounded-full">
-                    <ShieldCheck className="h-10 w-10 text-cbe-blue" />
+                    <ShieldCheck className="h-10 w-10 text-[#0067b1]" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Unmatched Security</h3>
-                  <p className="text-gray-700 leading-relaxed font-medium">Bank-grade encryption and multi-factor authentication protect your assets 24/7.</p>
+                  <h3 className="text-2xl font-bold">Unmatched Security</h3>
+                  <p className="text-gray-500 leading-relaxed font-medium">Bank-grade encryption and multi-factor authentication protect your assets 24/7.</p>
                 </div>
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="p-5 bg-green-50 rounded-full">
-                    <Clock className="h-10 w-10 text-cbe-green" />
+                    <Clock className="h-10 w-10 text-[#00a651]" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Zero Wait Time</h3>
-                  <p className="text-gray-700 leading-relaxed font-medium">Digitalize your walk-ins with our smart queue management system.</p>
+                  <h3 className="text-2xl font-bold">Zero Wait Time</h3>
+                  <p className="text-gray-500 leading-relaxed font-medium">Digitalize your walk-ins with our smart queue management system.</p>
                 </div>
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="p-5 bg-red-50 rounded-full">
                     <HeartHandshake className="h-10 w-10 text-red-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Inclusion First</h3>
-                  <p className="text-gray-700 leading-relaxed font-medium">Simple, Amharic-supported UI designed for the elderly and first-time users.</p>
+                  <h3 className="text-2xl font-bold">Inclusion First</h3>
+                  <p className="text-gray-500 leading-relaxed font-medium">Simple, Amharic-supported UI designed for the elderly and first-time users.</p>
                 </div>
               </div>
             </div>
@@ -160,15 +164,15 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-32 bg-cbe-blue relative overflow-hidden">
-          <div className="container px-4 md:px-6 relative z-10 text-center mx-auto">
+        <section className="py-24 bg-[#0067b1] relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <h2 className="text-4xl font-black text-white mb-6">Ready to Experience the Future?</h2>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10">
               Join thousands of customers in Dessie who are already enjoying the speed and security of CBE Digital Banking.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link href="/signup">
-                <Button className="bg-white text-cbe-blue hover:bg-gray-100 px-10 py-7 text-lg rounded-full font-bold shadow-xl">
+                <Button className="bg-white text-[#0067b1] hover:bg-gray-100 px-10 py-7 text-lg rounded-full font-bold shadow-xl">
                   Get Started for Free
                 </Button>
               </Link>
@@ -179,28 +183,30 @@ export default function Home() {
               </Link>
             </div>
           </div>
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-white/5 skew-x-12 -translate-y-1/2" />
+          <div className="absolute bottom-0 left-0 w-1/3 h-full bg-white/5 -skew-x-12 translate-y-1/2" />
         </section>
 
         {/* Branch Info Section */}
         <section className="py-16 bg-gray-50 border-t border-gray-100">
-          <div className="container px-4 md:px-6 mx-auto">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="flex items-center gap-4">
                 <div className="p-4 bg-white rounded-2xl shadow-sm border border-gray-100">
-                  <MapPin className="h-6 w-6 text-cbe-green" />
+                  <MapPin className="h-6 w-6 text-[#00a651]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg text-gray-900">Visit Us</h4>
-                  <p className="text-sm text-gray-700">Piyasa, Dessie, Wollo, Ethiopia</p>
+                  <h4 className="font-bold text-lg">Visit Us</h4>
+                  <p className="text-sm text-gray-500">Piyasa, Dessie, Wollo, Ethiopia</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="p-4 bg-white rounded-2xl shadow-sm border border-gray-100">
-                  <Users className="h-6 w-6 text-cbe-blue" />
+                  <Users className="h-6 w-6 text-[#0067b1]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg text-gray-900">Staff Working Hours</h4>
-                  <p className="text-sm text-gray-700">Mon - Sat: 8:00 AM - 5:00 PM</p>
+                  <h4 className="font-bold text-lg">Staff Working Hours</h4>
+                  <p className="text-sm text-gray-500">Mon - Sat: 8:00 AM - 5:00 PM</p>
                 </div>
               </div>
               <div className="hidden lg:block">

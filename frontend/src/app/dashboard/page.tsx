@@ -34,13 +34,13 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
       <header className="bg-[#0067b1] text-white py-12 mb-8">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold">Hello, {user.fullName.split(' ')[0]}!</h1>
           <p className="opacity-80">Welcome to your CBE Digital Banking Portal</p>
         </div>
       </header>
 
-      <main className="container mx-auto px-4 -mt-8 grid gap-8 md:grid-cols-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 grid gap-8 md:grid-cols-12">
         {/* Profile Section */}
         <div className="md:col-span-4">
           <UserProfile />
