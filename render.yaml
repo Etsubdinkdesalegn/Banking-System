@@ -39,15 +39,15 @@ services:
       - key: NEXT_PUBLIC_API_URL
         value: https://cbe-banking-backend.onrender.com/api/v1
 
+  # Redis for rate limiting and queue
+  - type: redis
+    name: cbe-redis
+    plan: free
+    region: oregon
+
 databases:
   - name: cbe-db
     plan: free
     region: oregon
     databaseName: banking_system
     user: cbe_user
-
-# Redis for rate limiting and queue
-- type: redis
-  name: cbe-redis
-  plan: free
-  region: oregon
