@@ -11,6 +11,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        cbe: {
+          blue: "#0067b1",
+          blueHover: "#005a9b",
+          green: "#00a651",
+          greenHover: "#008d44",
+        }
       },
     },
   },
