@@ -40,7 +40,7 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-        <h1 className="text-3xl font-bold mb-8">Your Profile</h1>
+        <h1 className="text-3xl font-bold mb-8 text-[#3C0366]">Your Profile</h1>
         
         <div className="grid gap-8 md:grid-cols-12">
           <div className="md:col-span-4">
@@ -48,17 +48,18 @@ export default function ProfilePage() {
           </div>
 
           <div className="md:col-span-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-400">
               <form onSubmit={handleUpdate} className="space-y-6">
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number (Fixed)</Label>
-                    <Input id="phone" value={user.phoneNumber} disabled className="bg-gray-50" />
+                    <Label htmlFor="phone" className="text-[#FFDF20]">Phone Number (Fixed)</Label>
+                    <Input id="phone" value={user.phoneNumber} disabled className="bg-gray-50 border border-2 border-gray-600 text-black" />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="fullName">Full Name</Label>
+                    <Label htmlFor="fullName" className="text-[#FFDF20]">Full Name</Label>
                     <Input 
+                      className="bg-gray-50 border border-2 border-gray-600 text-black"
                       id="fullName" 
                       value={fullName} 
                       onChange={(e) => setFullName(e.target.value)} 
@@ -67,18 +68,18 @@ export default function ProfilePage() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="role">Account Type</Label>
-                    <Input id="role" value={user.role} disabled className="bg-gray-50" />
+                    <Label htmlFor="role" className="text-[#FFDF20]">Account Type</Label>
+                    <Input id="role" value={user.role} disabled className="bg-gray-50 border border-2 border-gray-600 text-black" />
                   </div>
                 </div>
 
                 <div className="pt-4 flex justify-end">
                   <Button 
                     type="submit" 
-                    className="bg-[#0067b1] hover:bg-[#005a9b] gap-2 px-8"
+                    className="bg-[#3C0366] hover:bg-[#3c036f] gap-2 px-8"
                     disabled={isSaving}
                   >
-                    {isSaving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
+                    {isSaving ? <Loader2 className="h-4 w-4 animate-spin bg-[#3C0366]" /> : <Save className="h-4 w-4 bg-[#3C0366]" />}
                     Save Changes
                   </Button>
                 </div>

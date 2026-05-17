@@ -33,7 +33,7 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
-      <header className="bg-[#0067b1] text-white py-12 mb-8">
+      <header className="bg-[#3C0366] text-white py-12 mb-8">
         <div className="standard-container">
           <h1 className="text-3xl font-bold">Hello, {user.fullName.split(' ')[0]}!</h1>
           <p className="opacity-80">Welcome to your CBE Digital Banking Portal</p>
@@ -49,32 +49,32 @@ export default function DashboardPage() {
         {/* Financial Overview Section */}
         <div className="md:col-span-8 space-y-8">
           <div className="grid gap-4 md:grid-cols-2">
-            <Card className="rounded-2xl border-none shadow-sm">
+            <Card className="rounded-2xl border-none shadow-lg">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium">Total Balance</CardTitle>
+                <CardTitle className="text-sm font-medium text-[#FFDF20]">Total Balance</CardTitle>
                 <Wallet className="h-4 w-4 text-[#00a651]" />
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold">ETB 12,450.00</div>
+                <div className="text-3xl font-bold text-black">ETB 12,450.00</div>
                 <p className="text-xs text-gray-500 mt-1">+2.5% from last month</p>
               </CardContent>
             </Card>
             
-            <Card className="rounded-2xl border-none shadow-sm">
+            <Card className="rounded-2xl border-none shadow-lg">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium">Queue Tokens</CardTitle>
+                <CardTitle className="text-sm font-medium text-[#FFDF20]">Queue Tokens</CardTitle>
                 <Clock className="h-4 w-4 text-[#0067b1]" />
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold">2 Active</div>
+                <div className="text-3xl font-bold text-black">2 Active</div>
                 <p className="text-xs text-[#0067b1] mt-1 font-medium">Est. Wait: 15 mins</p>
               </CardContent>
             </Card>
           </div>
 
-          <Card className="rounded-2xl border-none shadow-sm">
+          <Card className="rounded-2xl border-none shadow-2xl bg-[#3C0366]">
             <CardHeader>
-              <CardTitle>Recent Transactions</CardTitle>
+              <CardTitle className="text-[#FBFBF9">Recent Transactions</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -85,7 +85,7 @@ export default function DashboardPage() {
                          {i % 2 === 0 ? <ArrowUpRight className="h-4 w-4 text-red-600" /> : <ArrowDownLeft className="h-4 w-4 text-green-600" />}
                       </div>
                       <div>
-                        <p className="font-bold">{i % 2 === 0 ? 'Abay Market' : 'Internal Transfer'}</p>
+                        <p className="font-bold text-[#FFDF20]">{i % 2 === 0 ? 'Abay Market' : 'Internal Transfer'}</p>
                         <p className="text-xs text-gray-500">May 16, 2024</p>
                       </div>
                     </div>

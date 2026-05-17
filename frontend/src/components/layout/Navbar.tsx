@@ -43,10 +43,10 @@ export default function Navbar() {
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="standard-container h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-[#0067b1] rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-[#3C0366] rounded-lg flex items-center justify-center">
             <span className="text-white font-bold">CBE</span>
           </div>
-          <span className="font-bold text-lg text-[#0067b1] hidden sm:block">Digital Banking</span>
+          <span className="font-bold text-lg text-[#3C0366] hidden sm:block">Digital Banking</span>
         </Link>
 
         {/* Desktop Links */}
@@ -56,8 +56,8 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-[#0067b1]",
-                pathname === link.href ? "text-[#0067b1]" : "text-gray-500"
+                "text-sm font-medium transition-colors hover:text-[#C420E8]",
+                pathname === link.href ? "text-[#C420E8]" : "text-[#3C0366]"
               )}
             >
               {link.name}
@@ -68,7 +68,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           {user ? (
             <div className="flex items-center gap-3">
-              <Button variant="ghost" size="icon" className="text-gray-500">
+              <Button variant="ghost" size="icon" className="text-[#3C0366]">
                 <Bell className="h-5 w-5" />
               </Button>
               <Link href="/profile">
@@ -84,15 +84,15 @@ export default function Navbar() {
           ) : (
             <div className="hidden md:flex items-center gap-3">
               <Link href="/login">
-                <Button variant="ghost">Login</Button>
+                <Button variant="ghost" className="bg-[#3C0366] hover:bg-[#C420E8]">Login</Button>
               </Link>
               <Link href="/signup">
-                <Button className="bg-[#0067b1] hover:bg-[#005a9b]">Register</Button>
+                <Button className="bg-[#3C0366] hover:bg-[#C420E8]">Register</Button>
               </Link>
             </div>
           )}
 
-          <Button variant="ghost" size="icon" className="text-gray-400 hover:text-[#0067b1] ml-2" title="Developer Tools">
+          <Button variant="ghost" size="icon" className="text-[#3C0366] hover:text-[#C420E8] ml-2" title="Developer Tools">
             <Terminal className="h-5 w-5" />
           </Button>
 

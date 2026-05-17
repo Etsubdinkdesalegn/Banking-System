@@ -11,16 +11,16 @@ export default function Home() {
     <div className="flex flex-col bg-white overflow-hidden">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full py-20 md:py-32 bg-gradient-to-br from-white via-white to-[#00a651]/10 relative">
+        <section className="w-full py-20 md:py-32 bg-gradient-to-br from-white via-white to-[#3C0366] relative">
           <div className="standard-container relative z-10">
             <div className="flex flex-col items-center space-y-6 text-center max-w-4xl mx-auto">
-              <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-[#0067b1]/10 text-[#0067b1] border border-[#0067b1]/20">
-                <span className="flex h-2 w-2 rounded-full bg-[#0067b1] mr-2 animate-pulse" />
+              <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-[#0067b1]/10 text-[#3C0366] border border-[#0067b1]/20">
+                <span className="flex h-2 w-2 rounded-full bg-[#3C0366] mr-2 animate-pulse" />
                 CBE Dessie Branch - Digital Evolution
               </div>
-              <h1 className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl text-[#0067b1] leading-tight">
+              <h1 className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl text-[#3C0366] leading-tight">
                 Secure Banking <br />
-                <span className="text-[#00a651]">Built for You</span>
+                <span className="text-[#C420E8]">Built for You</span>
               </h1>
               <p className="mx-auto max-w-[800px] text-gray-500 md:text-xl lg:text-2xl leading-relaxed">
                 Empowering the Dessie community with world-class digital banking solutions. 
@@ -28,13 +28,13 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <Link href="/signup">
-                  <Button className="bg-[#0067b1] hover:bg-[#005a9b] text-white px-10 py-7 text-lg rounded-full shadow-2xl shadow-[#0067b1]/30 group transition-all">
+                  <Button className="bg-[#3C0366] hover:bg-[#C420E8] text-white px-10 py-7 text-lg rounded-full shadow-2xl shadow-[#0067b1]/30 group transition-all">
                     Register Now
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link href="/queue">
-                  <Button variant="outline" className="border-2 border-[#00a651] text-[#00a651] hover:bg-[#00a651]/5 px-10 py-7 text-lg rounded-full transition-all">
+                  <Button variant="outline" className="border-2 border-[#00a651] text-[#00a651] bg-[#FFDF2f] hover:bg-[#3C0366]/5 px-10 py-7 text-lg rounded-full transition-all">
                     Book Queuing Token
                   </Button>
                 </Link>
@@ -52,10 +52,10 @@ export default function Home() {
           <div className="standard-container">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-6">
-                <div className="inline-block p-3 bg-[#0067b1]/10 rounded-2xl">
-                  <Info className="h-8 w-8 text-[#0067b1]" />
+                <div className="inline-block p-3 bg-[#3C0366]/10 rounded-2xl">
+                  <Info className="h-8 w-8 text-[#3C0366]" />
                 </div>
-                <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-4xl font-bold text-[#3C0366] leading-tight">
                   About CBE Dessie <br />Branch (Piyasa)
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
@@ -70,7 +70,7 @@ export default function Home() {
                     "Committed to financial inclusion for all sectors"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 font-medium text-gray-700">
-                      <CheckCircle2 className="h-5 w-5 text-[#00a651]" />
+                      <CheckCircle2 className="h-5 w-5 text-[#C420E8]" />
                       {item}
                     </li>
                   ))}
@@ -78,7 +78,7 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4 pt-8">
-                  <div className="bg-[#0067b1] p-8 rounded-3xl text-white shadow-xl">
+                  <div className="bg-[#3C0366] p-8 rounded-3xl text-white shadow-2xl">
                     <h4 className="text-4xl font-black">80+</h4>
                     <p className="text-sm opacity-80 mt-1">Years of Legacy</p>
                   </div>
@@ -92,7 +92,7 @@ export default function Home() {
                     <h4 className="text-4xl font-black text-[#0067b1]">99%</h4>
                     <p className="text-sm text-gray-500 mt-1">Uptime Secure</p>
                   </div>
-                  <div className="bg-[#00a651] p-8 rounded-3xl text-white shadow-xl">
+                  <div className="bg-[#C420E8] p-8 rounded-3xl text-white shadow-xl">
                     <h4 className="text-4xl font-black">1M+</h4>
                     <p className="text-sm opacity-80 mt-1">Active Customers</p>
                   </div>
@@ -106,21 +106,21 @@ export default function Home() {
         <section id="services" className="py-24 bg-gray-50">
           <div className="standard-container">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-4xl font-bold mb-4">Comprehensive Banking Services</h2>
+              <h2 className="text-4xl font-bold mb-4 text-[#3C0366]">Comprehensive Banking Services</h2>
               <p className="text-lg text-gray-600">Tailored solutions for every financial need, from personal accounts to large-scale business operations.</p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 ">
               {[
                 { icon: Landmark, title: "Personal Banking", desc: "Savings, current accounts, and tailored fixed deposits." },
                 { icon: Briefcase, title: "Business Banking", desc: "Commercial loans, trade finance, and payroll services." },
                 { icon: Smartphone, title: "Mobile Banking", desc: "Instant transfers and bill payments via CBE Birr." },
                 { icon: TrendingUp, title: "Loan Services", desc: "Competitive rates for homes, cars, and investments." }
               ].map((service, i) => (
-                <div key={i} className="group bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
-                  <div className="w-12 h-12 bg-[#0067b1]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#0067b1] transition-colors">
-                    <service.icon className="h-6 w-6 text-[#0067b1] group-hover:text-white" />
+                <div key={i} className="group bg-white p-8 rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                  <div className="w-12 h-12 bg-[#3C0366] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#C420E8] transition-colors">
+                    <service.icon className="h-6 w-6 text-[#C420E8] group-hover:text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-gray-700">{service.title}</h3>
                   <p className="text-gray-500 text-sm">{service.desc}</p>
                 </div>
               ))}
@@ -133,7 +133,7 @@ export default function Home() {
           <div className="standard-container">
             <div className="flex flex-col items-center gap-16">
               <div className="text-center max-w-3xl">
-                <h2 className="text-4xl font-bold mb-4">Why Choose CBE Digital?</h2>
+                <h2 className="text-4xl font-bold mb-4 text-[#3C0366]">Why Choose CBE Digital?</h2>
                 <p className="text-lg text-gray-600">We combine the strength of Ethiopia's largest bank with cutting-edge technology to solve real-world problems.</p>
               </div>
               <div className="grid md:grid-cols-3 gap-12">
@@ -141,21 +141,21 @@ export default function Home() {
                   <div className="p-5 bg-blue-50 rounded-full">
                     <ShieldCheck className="h-10 w-10 text-[#0067b1]" />
                   </div>
-                  <h3 className="text-2xl font-bold">Unmatched Security</h3>
+                  <h3 className="text-2xl font-bold text-[#3C0366]">Unmatched Security</h3>
                   <p className="text-gray-500 leading-relaxed font-medium">Bank-grade encryption and multi-factor authentication protect your assets 24/7.</p>
                 </div>
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="p-5 bg-green-50 rounded-full">
                     <Clock className="h-10 w-10 text-[#00a651]" />
                   </div>
-                  <h3 className="text-2xl font-bold">Zero Wait Time</h3>
+                  <h3 className="text-2xl font-bold text-[#3C0366]">Zero Wait Time</h3>
                   <p className="text-gray-500 leading-relaxed font-medium">Digitalize your walk-ins with our smart queue management system.</p>
                 </div>
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="p-5 bg-red-50 rounded-full">
                     <HeartHandshake className="h-10 w-10 text-red-600" />
                   </div>
-                  <h3 className="text-2xl font-bold">Inclusion First</h3>
+                  <h3 className="text-2xl font-bold text-[#3C0366]">Inclusion First</h3>
                   <p className="text-gray-500 leading-relaxed font-medium">Simple, Amharic-supported UI designed for the elderly and first-time users.</p>
                 </div>
               </div>
@@ -164,7 +164,7 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 bg-[#0067b1] relative overflow-hidden">
+        <section className="py-24 bg-[#3C0366] relative overflow-hidden">
           <div className="standard-container relative z-10 text-center">
             <h2 className="text-4xl font-black text-white mb-6">Ready to Experience the Future?</h2>
             <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10">
@@ -196,7 +196,7 @@ export default function Home() {
                   <MapPin className="h-6 w-6 text-[#00a651]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg">Visit Us</h4>
+                  <h4 className="font-bold text-lg text-[#C420E8]">Visit Us</h4>
                   <p className="text-sm text-gray-500">Piyasa, Dessie, Wollo, Ethiopia</p>
                 </div>
               </div>
@@ -205,12 +205,12 @@ export default function Home() {
                   <Users className="h-6 w-6 text-[#0067b1]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg">Staff Working Hours</h4>
+                  <h4 className="font-bold text-lg text-[#C420E8]">Staff Working Hours</h4>
                   <p className="text-sm text-gray-500">Mon - Sat: 8:00 AM - 5:00 PM</p>
                 </div>
               </div>
               <div className="hidden lg:block">
-                <p className="text-xs text-gray-400 font-medium">Licensed by National Bank of Ethiopia</p>
+                <p className="text-xs text-gray-400 font-medium text-[#C420E8]">Licensed by National Bank of Ethiopia</p>
               </div>
             </div>
           </div>

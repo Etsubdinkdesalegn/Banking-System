@@ -36,7 +36,7 @@ export default function UserProfile() {
   if (!user) return null;
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center">
+    <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col items-center">
       <div className="relative group">
         <Avatar className="w-32 h-32 border-4 border-white shadow-xl">
           {user.profileImage && <AvatarImage src={user.profileImage} alt={user.fullName} />}

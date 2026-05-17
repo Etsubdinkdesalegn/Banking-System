@@ -17,7 +17,7 @@ export default function SupportPage() {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-black text-[#0067b1] mb-4">Customer Support Center</h1>
+          <h1 className="text-4xl font-black text-[#3C0366] mb-4">Customer Support Center</h1>
           <p className="text-lg text-gray-600">How can we help you today? Our Dessie branch staff is ready to assist.</p>
         </div>
 
@@ -27,13 +27,13 @@ export default function SupportPage() {
              { icon: Video, title: "Video Call", desc: "For ID verification & help", action: "Request Meet" },
              { icon: Phone, title: "Phone Support", desc: "Available 8 AM - 5 PM", action: "Call 951" }
            ].map((method, i) => (
-             <Card key={i} className="rounded-3xl border-none shadow-sm hover:shadow-xl transition-all p-8 text-center bg-white group">
-                <div className="w-16 h-16 bg-[#0067b1]/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#0067b1] transition-colors">
-                   <method.icon className="h-8 w-8 text-[#0067b1] group-hover:text-white" />
+             <Card key={i} className="rounded-3xl border-none shadow-lg hover:shadow-xl transition-all p-8 text-center bg-gray-100 group">
+                <div className="w-16 h-16 bg-[#3C0366]/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#3C0366] transition-colors">
+                   <method.icon className="h-8 w-8 text-[#3C0366] group-hover:text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{method.title}</h3>
+                <h3 className="text-xl font-bold mb-2 text-[#3C0366]">{method.title}</h3>
                 <p className="text-sm text-gray-500 mb-6">{method.desc}</p>
-                <Button variant="outline" className="rounded-full w-full border-[#0067b1] text-[#0067b1] hover:bg-[#0067b1] hover:text-white transition-all">
+                <Button variant="outline" className="rounded-full w-full border-[#3C0366] text-[#FFDF20] bg-[#3C0366]  transition-all">
                   {method.action}
                 </Button>
              </Card>
@@ -43,8 +43,8 @@ export default function SupportPage() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
            {/* FAQ Section */}
            <div className="space-y-6">
-              <h2 className="text-2xl font-bold flex items-center gap-2">
-                 <HelpCircle className="h-6 w-6 text-[#00a651]" />
+              <h2 className="text-2xl font-bold flex items-center gap-2 text-[#3C0366]">
+                 <HelpCircle className="h-6 w-6 text-[#3C0366]" />
                  Common Questions
               </h2>
               <div className="space-y-4">
@@ -53,7 +53,7 @@ export default function SupportPage() {
                    { q: "What is the daily transfer limit?", a: "The default daily limit is 100,000 ETB, which can be increased upon request." },
                    { q: "Is CBE digital banking available on weekends?", a: "Yes, our digital banking services are available 24/7, even when the branch is closed." }
                  ].map((faq, i) => (
-                    <div key={i} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <div key={i} className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md">
                        <h4 className="font-bold mb-2 text-gray-900">{faq.q}</h4>
                        <p className="text-sm text-gray-500 leading-relaxed">{faq.a}</p>
                     </div>
@@ -62,25 +62,25 @@ export default function SupportPage() {
            </div>
 
            {/* Contact Form */}
-           <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                 <UserCheck className="h-6 w-6 text-[#0067b1]" />
+           <div className="bg-white p-8 rounded-3xl shadow-2xl border border-gray-200">
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-[#3C0366]">
+                 <UserCheck className="h-6 w-6 text-[#3C0366]" />
                  Send us a Message
               </h2>
               <form onSubmit={handleContact} className="space-y-4">
                  <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                       <Label>Full Name</Label>
-                       <Input placeholder="Abebe Bikila" required />
+                       <Label className="text-[#FFDF20]">Full Name</Label>
+                       <Input placeholder="Abebe Bikila" className="text-black" required />
                     </div>
                     <div className="space-y-2">
-                       <Label>Phone Number</Label>
-                       <Input placeholder="09..." required />
+                       <Label className="text-[#FFDF20]">Phone Number</Label>
+                       <Input placeholder="09..." className="text-black" required />
                     </div>
                  </div>
                  <div className="space-y-2">
-                    <Label>Issue Category</Label>
-                    <select className="flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                    <Label className="text-[#FFDF20]">Issue Category</Label>
+                    <select className=" text-black flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
                        <option>Transaction Issue</option>
                        <option>Queue Management</option>
                        <option>Account Access</option>
@@ -88,14 +88,14 @@ export default function SupportPage() {
                     </select>
                  </div>
                  <div className="space-y-2">
-                    <Label>Message</Label>
+                    <Label className="text-[#FFDF20]">Message</Label>
                     <textarea 
-                      className="flex min-h-[120px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                      className=" text-black flex min-h-[120px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                       placeholder="Describe your issue in detail..."
                       required
                     ></textarea>
                  </div>
-                 <Button type="submit" className="w-full bg-[#0067b1] hover:bg-[#005a9b] py-6 rounded-xl font-bold">
+                 <Button type="submit" className="w-full bg-[#3C0366] hover:bg-[#3C036f] py-6 rounded-xl font-bold">
                     Submit Support Ticket
                  </Button>
               </form>

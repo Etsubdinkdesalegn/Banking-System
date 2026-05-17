@@ -45,7 +45,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
         <div className="text-center">
-          <div className="mx-auto w-12 h-12 bg-[#0067b1] rounded-lg flex items-center justify-center mb-4">
+          <div className="mx-auto w-14 h-12 bg-[#3C0366] rounded-lg flex items-center justify-center mb-4">
             <span className="text-white font-bold text-xl">CBE</span>
           </div>
           <h2 className="text-3xl font-bold text-gray-900">Welcome Back</h2>
@@ -55,7 +55,7 @@ export default function LoginPage() {
         <form className="mt-8 space-y-6" onSubmit={handleLogin}>
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="phone">Phone Number</Label>
+              <Label htmlFor="phone" className="text-[#FFDF20]">Phone Number</Label>
               <Input
                 id="phone"
                 type="tel"
@@ -68,7 +68,7 @@ export default function LoginPage() {
             </div>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password" className="text-[#FFDF20]">Password</Label>
                 <Link href="#" className="text-sm font-medium text-[#0067b1] hover:underline">
                   Forgot?
                 </Link>
@@ -86,7 +86,7 @@ export default function LoginPage() {
 
           <Button 
             type="submit" 
-            className="w-full bg-[#0067b1] hover:bg-[#005a9b] py-6 rounded-xl transition-all"
+            className="w-full bg-[#3C0366] hover:bg-[#3C036F] py-6 rounded-xl transition-all"
             disabled={isLoading}
           >
             {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Sign In"}
