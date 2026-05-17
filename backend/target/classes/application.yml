@@ -3,8 +3,8 @@ spring:
     name: banking-system
   datasource:
     url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/banking_system}
-    username: ${DATABASE_USERNAME:cbe_user}
-    password: ${DATABASE_PASSWORD:cbe_password}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:12345678}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

@@ -4,28 +4,7 @@ import { ArrowRight, ShieldCheck, Clock, HeartHandshake } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
-      {/* Header */}
-      <header className="px-4 lg:px-6 h-16 flex items-center border-b border-gray-100 sticky top-0 bg-white/80 backdrop-blur-md z-50">
-        <Link className="flex items-center justify-center" href="#">
-          <div className="w-10 h-10 bg-[#0067b1] rounded-lg flex items-center justify-center mr-2">
-            <span className="text-white font-bold text-xl">CBE</span>
-          </div>
-          <span className="font-bold text-xl tracking-tight text-[#0067b1] hidden sm:inline-block">Digital Banking</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:text-[#0067b1] transition-colors" href="/features">
-            Features
-          </Link>
-          <Link className="text-sm font-medium hover:text-[#0067b1] transition-colors" href="/support">
-            Support
-          </Link>
-          <Link className="text-sm font-medium hover:text-[#0067b1] transition-colors" href="/login">
-            Login
-          </Link>
-        </nav>
-      </header>
-
+    <div className="flex flex-col bg-white">
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-br from-white via-white to-[#00a651]/5">
@@ -82,20 +61,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <footer className="w-full py-6 bg-white border-t border-gray-100">
-        <div className="container px-4 md:px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-500">© 2024 Commercial Bank of Ethiopia. All rights reserved.</p>
-          <nav className="flex gap-4 sm:gap-6">
-            <Link className="text-xs hover:underline underline-offset-4 text-gray-500" href="#">
-              Terms of Service
-            </Link>
-            <Link className="text-xs hover:underline underline-offset-4 text-gray-500" href="#">
-              Privacy Policy
-            </Link>
-          </nav>
-        </div>
-      </footer>
     </div>
   );
 }
