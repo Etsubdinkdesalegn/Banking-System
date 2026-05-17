@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useUserStore } from "@/store/userStore";
 import { Menu, X, Bell, User, Terminal } from "lucide-react";
@@ -10,8 +10,27 @@ import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { user } = useUserStore();
+  const { user, setUser } = useUserStore();
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      await fetch("http://localhost:8080/api/v1/auth/logout", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${localStorage.getItem("token")}`
+        }
+      });
+    } catch (error) {
+      console.error("Logout failed", error);
+    } finally {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      setUser(null);
+      router.push("/login");
+    }
+  };
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -58,6 +77,9 @@ export default function Navbar() {
                   <span className="hidden sm:inline">{user.fullName.split(" ")[0]}</span>
                 </Button>
               </Link>
+              <Button variant="ghost" onClick={handleLogout} className="text-red-600 hover:text-red-700 hover:bg-red-50">
+                Log Out
+              </Button>
             </div>
           ) : (
             <div className="hidden md:flex items-center gap-3">
@@ -94,6 +116,11 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
+          {user && (
+            <Button variant="ghost" onClick={handleLogout} className="w-full text-red-600 justify-start">
+               Log Out
+            </Button>
+          )}
           {!user && (
             <div className="pt-4 border-t border-gray-100 flex flex-col gap-2">
               <Link href="/login" onClick={() => setIsOpen(false)}>

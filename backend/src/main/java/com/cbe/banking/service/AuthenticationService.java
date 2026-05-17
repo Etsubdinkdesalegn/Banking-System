@@ -4,6 +4,8 @@ import com.cbe.banking.dto.AuthenticationRequest;
 import com.cbe.banking.dto.AuthenticationResponse;
 import com.cbe.banking.dto.RegisterRequest;
 import com.cbe.banking.model.User;
+import com.cbe.banking.model.Token;
+import com.cbe.banking.repository.TokenRepository;
 import com.cbe.banking.repository.UserRepository;
 import com.cbe.banking.security.JwtService;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Service;
 public class AuthenticationService {
 
     private final UserRepository repository;
+    private final TokenRepository tokenRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
@@ -29,8 +32,9 @@ public class AuthenticationService {
                 .role(User.Role.CUSTOMER)
                 .permissions(java.util.Collections.emptySet())
                 .build();
-        repository.save(user);
+        var savedUser = repository.save(user);
         var jwtToken = jwtService.generateToken(user);
+        saveUserToken(savedUser, jwtToken);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .fullName(user.getFullName())
@@ -47,9 +51,33 @@ public class AuthenticationService {
         var user = repository.findByPhoneNumber(request.getPhoneNumber())
                 .orElseThrow();
         var jwtToken = jwtService.generateToken(user);
+        revokeAllUserTokens(user);
+        saveUserToken(user, jwtToken);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .fullName(user.getFullName())
                 .build();
+    }
+
+    private void saveUserToken(User user, String jwtToken) {
+        var token = Token.builder()
+                .user(user)
+                .token(jwtToken)
+                .tokenType(Token.TokenType.BEARER)
+                .expired(false)
+                .revoked(false)
+                .build();
+        tokenRepository.save(token);
+    }
+
+    private void revokeAllUserTokens(User user) {
+        var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getId());
+        if (validUserTokens.isEmpty())
+            return;
+        validUserTokens.forEach(token -> {
+            token.setExpired(true);
+            token.setRevoked(true);
+        });
+        tokenRepository.saveAll(validUserTokens);
     }
 }
