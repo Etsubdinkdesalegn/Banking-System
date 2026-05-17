@@ -12,7 +12,7 @@ export default function Home() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-20 md:py-32 bg-gradient-to-br from-white via-white to-[#00a651]/10 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="standard-container relative z-10">
             <div className="flex flex-col items-center space-y-6 text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-[#0067b1]/10 text-[#0067b1] border border-[#0067b1]/20">
                 <span className="flex h-2 w-2 rounded-full bg-[#0067b1] mr-2 animate-pulse" />
@@ -49,7 +49,7 @@ export default function Home() {
 
         {/* About Us Section */}
         <section className="py-24 bg-white border-y border-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="standard-container">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-6">
                 <div className="inline-block p-3 bg-[#0067b1]/10 rounded-2xl">
@@ -104,7 +104,7 @@ export default function Home() {
 
         {/* Services Section */}
         <section id="services" className="py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="standard-container">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-4xl font-bold mb-4">Comprehensive Banking Services</h2>
               <p className="text-lg text-gray-600">Tailored solutions for every financial need, from personal accounts to large-scale business operations.</p>
@@ -130,7 +130,7 @@ export default function Home() {
 
         {/* Why Choose Us Section */}
         <section className="py-24 bg-white overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="standard-container">
             <div className="flex flex-col items-center gap-16">
               <div className="text-center max-w-3xl">
                 <h2 className="text-4xl font-bold mb-4">Why Choose CBE Digital?</h2>
@@ -165,7 +165,7 @@ export default function Home() {
 
         {/* CTA Section */}
         <section className="py-24 bg-[#0067b1] relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div className="standard-container relative z-10 text-center">
             <h2 className="text-4xl font-black text-white mb-6">Ready to Experience the Future?</h2>
             <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10">
               Join thousands of customers in Dessie who are already enjoying the speed and security of CBE Digital Banking.
@@ -189,7 +189,7 @@ export default function Home() {
 
         {/* Branch Info Section */}
         <section className="py-16 bg-gray-50 border-t border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="standard-container">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="flex items-center gap-4">
                 <div className="p-4 bg-white rounded-2xl shadow-sm border border-gray-100">

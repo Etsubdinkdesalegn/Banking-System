@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="standard-container h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <div className="w-8 h-8 bg-[#0067b1] rounded-lg flex items-center justify-center">
             <span className="text-white font-bold">CBE</span>
