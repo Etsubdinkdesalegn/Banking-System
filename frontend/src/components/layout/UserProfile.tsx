@@ -33,20 +33,19 @@ export default function UserProfile() {
     }
   };
 
-  const getProfileImageUrl = (path: string) => {
+  if (!user) return null;
+
+  const getImageUrl = (path: string) => {
     if (!path) return "";
     if (path.startsWith("http")) return path;
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace("/api/v1", "") || "http://localhost:8080";
-    return `${baseUrl}${path}`;
+    return `http://localhost:8080${path}`;
   };
-
-  if (!user) return null;
 
   return (
     <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col items-center">
       <div className="relative group">
         <Avatar className="w-32 h-32 border-4 border-white shadow-xl">
-          {user.profileImage && <AvatarImage src={getProfileImageUrl(user.profileImage)} alt={user.fullName} />}
+          {user.profileImage && <AvatarImage src={getImageUrl(user.profileImage)} alt={user.fullName} />}
           <AvatarFallback className="bg-[#0067b1] text-white text-3xl font-bold">
             {getInitials(user.fullName)}
           </AvatarFallback>

@@ -50,23 +50,22 @@ public class UserController {
         Path filePath = Paths.get(UPLOAD_DIR + fileName);
         Files.write(filePath, file.getBytes());
 
-        user.setProfileImage("/api/v1/users/avatar/" + fileName);
+        user.setProfileImage("/api/v1/public/avatar/" + fileName);
         userRepository.save(user);
 
         return ResponseEntity.ok(user.getProfileImage());
     }
 
-    @GetMapping("/avatar/{filename}")
-    public ResponseEntity<org.springframework.core.io.Resource> getAvatar(@PathVariable String filename) throws IOException {
-        Path filePath = Paths.get(UPLOAD_DIR).resolve(filename);
-        org.springframework.core.io.Resource resource = new org.springframework.core.io.UrlResource(filePath.toUri());
-
-        if (resource.exists() || resource.isReadable()) {
+    @GetMapping({"/avatar/{fileName}", "/public/avatar/{fileName}"})
+    public ResponseEntity<byte[]> getAvatar(@PathVariable String fileName) throws IOException {
+        Path path = Paths.get(UPLOAD_DIR + fileName);
+        if (Files.exists(path)) {
+            byte[] image = Files.readAllBytes(path);
+            String contentType = Files.probeContentType(path);
             return ResponseEntity.ok()
-                    .header(org.springframework.http.HttpHeaders.CONTENT_TYPE, Files.probeContentType(filePath))
-                    .body(resource);
-        } else {
-            return ResponseEntity.notFound().build();
+                    .header("Content-Type", contentType != null ? contentType : "image/jpeg")
+                    .body(image);
         }
+        return ResponseEntity.notFound().build();
     }
 }
