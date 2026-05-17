@@ -55,4 +55,18 @@ public class UserController {
 
         return ResponseEntity.ok(user.getProfileImage());
     }
+
+    @GetMapping("/avatar/{filename}")
+    public ResponseEntity<org.springframework.core.io.Resource> getAvatar(@PathVariable String filename) throws IOException {
+        Path filePath = Paths.get(UPLOAD_DIR).resolve(filename);
+        org.springframework.core.io.Resource resource = new org.springframework.core.io.UrlResource(filePath.toUri());
+
+        if (resource.exists() || resource.isReadable()) {
+            return ResponseEntity.ok()
+                    .header(org.springframework.http.HttpHeaders.CONTENT_TYPE, Files.probeContentType(filePath))
+                    .body(resource);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

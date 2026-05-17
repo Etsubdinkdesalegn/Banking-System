@@ -39,6 +39,13 @@ export default function Navbar() {
     { name: "Support", href: "/support" },
   ];
 
+  const getProfileImageUrl = (path: string) => {
+    if (!path) return "";
+    if (path.startsWith("http")) return path;
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace("/api/v1", "") || "http://localhost:8080";
+    return `${baseUrl}${path}`;
+  };
+
   return (
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="standard-container h-16 flex items-center justify-between">
@@ -72,12 +79,20 @@ export default function Navbar() {
                 <Bell className="h-5 w-5" />
               </Button>
               <Link href="/profile">
-                <Button variant="outline" className="rounded-full gap-2">
-                  <User className="h-4 w-4" />
-                  <span className="hidden sm:inline">{user.fullName.split(" ")[0]}</span>
+                <Button variant="outline" className="rounded-full gap-2 p-1 pl-3 h-10">
+                  <span className="hidden sm:inline font-medium">{user.fullName.split(" ")[0]}</span>
+                  {user.profileImage ? (
+                    <img 
+                      src={getProfileImageUrl(user.profileImage)} 
+                      alt={user.fullName} 
+                      className="h-8 w-8 rounded-full object-cover border border-gray-200"
+                    />
+                  ) : (
+                    <User className="h-5 w-5 text-[#3C0366]" />
+                  )}
                 </Button>
               </Link>
-              <Button variant="ghost" onClick={handleLogout} className="text-red-600 hover:text-red-700 hover:bg-red-50">
+              <Button variant="ghost" onClick={handleLogout} className="text-red-600 hover:text-red-700 hover:bg-red-50 font-medium">
                 Log Out
               </Button>
             </div>
