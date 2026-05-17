@@ -23,6 +23,10 @@ services:
         fromService:
           name: cbe-redis
           property: port
+    disk:
+      name: profile-images
+      mountPath: /app/uploads/profiles
+      sizeGB: 1
 
   # Frontend Service
   - type: web
@@ -33,9 +37,7 @@ services:
     region: oregon
     envVars:
       - key: NEXT_PUBLIC_API_URL
-        fromService:
-          name: cbe-banking-backend
-          property: host
+        value: https://cbe-banking-backend.onrender.com/api/v1
 
 databases:
   - name: cbe-db
